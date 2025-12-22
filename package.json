@@ -9,8 +9,8 @@
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "turbo dev",
-    "start:lowcode": "nest start --watch",
-    "start:devops": "nest start devops --watch",
+    "start:lowcode": "cross-env RUNNING_ENV=dev nest start --watch",
+    "start:devops": "cross-env RUNNING_ENV=dev nest start devops --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/lower-code-test/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -22,10 +22,17 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/swagger": "^11.2.3",
+    "cross-env": "^10.1.0",
+    "mongoose": "^9.0.2",
+    "mysql2": "^3.16.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.28",
+    "yaml": "^2.8.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
