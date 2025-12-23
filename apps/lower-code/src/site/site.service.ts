@@ -3,6 +3,7 @@ import { CreateSiteDto } from './dto/create-site.dto';
 import { UpdateSiteDto } from './dto/update-site.dto';
 import { MongoRepository } from 'typeorm';
 import { Site } from './entities/site.mongo.entity';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class SiteService {
@@ -16,12 +17,14 @@ export class SiteService {
   }
 
   findAll() {
-    return `This action returns all site`;
+    return this.siteRepository.find();
   }
 
   findOne(id: string) {
-    return this.siteRepository.findOneBy({
-      _id: id,
+    return this.siteRepository.findOne({
+      where: {
+        _id: new ObjectId(id),
+      },
     });
   }
 
