@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateSiteDto } from './dto/create-site.dto';
 import { UpdateSiteDto } from './dto/update-site.dto';
-import { MongoRepository, ObjectId } from 'typeorm';
+import { MongoRepository } from 'typeorm';
 import { Site } from './entities/site.mongo.entity';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class SiteService {
 
   findOne(id: string) {
     return this.siteRepository.findOneBy({
-      id: id,
+      _id: id,
     });
   }
 

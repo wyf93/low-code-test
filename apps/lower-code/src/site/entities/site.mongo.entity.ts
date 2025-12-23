@@ -26,7 +26,7 @@ export enum API_TYPE {
 @Entity()
 export class Site {
   @ObjectIdColumn()
-  id: ObjectId;
+  _id: ObjectId;
 
   @Column()
   name: string;
