@@ -25,6 +25,6 @@ async function bootstrap() {
     // new BaseExceptionFilter(),
     new HttpExceptionFilter(),
   );
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3002);
 }
 bootstrap();

@@ -1,19 +1,19 @@
 import { Module } from '@nestjs/common';
-import { SiteModule } from './site/site.module';
-import { PageModule } from './page/page.module';
-import { DatabaseModule } from '../../../libs/comm/src/database/database.module';
 import { ConfigModule } from '@nestjs/config';
+import { UserModule } from './user/user.module';
+import { DepartmentModule } from './department/department.module';
+import { DatabaseModule } from '@comm/comm/database/database.module';
 import { getConfig } from '@comm/comm/utils';
 
 @Module({
   imports: [
-    DatabaseModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [getConfig],
     }),
-    SiteModule,
-    PageModule,
+    DatabaseModule,
+    UserModule,
+    DepartmentModule,
   ],
 })
 export class AppModule {}
